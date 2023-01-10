@@ -39,9 +39,9 @@ namespace Verimix.API.Controllers
         }
 
         [HttpDelete("DeleteUser/{id}")]
-        public async Task<IActionResult> DeleteUserById([FromRoute] Guid id, CancellationToken cancellationToken)
+        public async Task<IActionResult> DeleteUserById([FromRoute] Guid id, bool forceDelete, CancellationToken cancellationToken)
         {
-            var result = await service.DeleteUserById(id, cancellationToken);
+            var result = await service.DeleteUserById(id, forceDelete, cancellationToken);
             if (result)
             {
                 return Ok(result);
@@ -53,6 +53,17 @@ namespace Verimix.API.Controllers
         public async Task<IActionResult> UpdateUser([FromBody] UpdateUserDto data, CancellationToken cancellationToken)
         {
             var result = await service.UpdateUser(data, cancellationToken);
+            if (result)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpPut("UpdateUser/{id}")]
+        public async Task<IActionResult> UpdateUserById([FromRoute] Guid id, UpdateUserByIdDto data, CancellationToken cancellationToken)
+        {
+            var result = await service.UpdateUserById(id, data, cancellationToken);
             if (result)
             {
                 return Ok(result);

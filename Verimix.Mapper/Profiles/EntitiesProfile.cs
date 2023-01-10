@@ -8,6 +8,7 @@
             CreateMap<NewUserDto, User>();
             CreateMap<User, UserByIdDto>();
             CreateMap<UpdateUserDto, User>();
+            CreateMap<UpdateUserByIdDto, User>();
         }
     }
 }

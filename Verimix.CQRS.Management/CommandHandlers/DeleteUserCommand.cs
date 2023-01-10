@@ -3,6 +3,7 @@
     internal class DeleteUserCommand : IRequestHandler<DeleteUserByIdRequest, bool>
     {
         private readonly IUnitOfWork unitOfWork;
+        private readonly IMapper mapper;
 
         public DeleteUserCommand(IUnitOfWork unitOfWork)
         {
@@ -17,7 +18,16 @@
             {
                 return false;
             }
-            repository.Delete(entity);
+            if (request.ForceDelete)
+            {
+                repository.Delete(entity);
+            }
+            else
+            {
+                entity.DeletedAt = DateTime.Now;
+                entity.IsDeleted = true;
+                repository.Update(entity);
+            }
             var result = await unitOfWork.SaveChanges(cancellationToken);
             return result > 0;
         }

@@ -24,14 +24,19 @@
             return mediator.Send(new NewUserRequest(data), cancellationToken);
         }
 
-        public Task<bool> DeleteUserById(Guid id, CancellationToken cancellationToken)
+        public Task<bool> DeleteUserById(Guid id, bool forceDelete, CancellationToken cancellationToken)
         {
-            return mediator.Send(new DeleteUserByIdRequest(id), cancellationToken);
+            return mediator.Send(new DeleteUserByIdRequest(id, forceDelete), cancellationToken);
         }
 
         public Task<bool> UpdateUser(UpdateUserDto data, CancellationToken cancellationToken)
         {
             return mediator.Send(new UpdateUserRequest(data), cancellationToken);
+        }
+
+        public Task<bool> UpdateUserById(Guid id, UpdateUserByIdDto data, CancellationToken cancellationToken)
+        {
+            return mediator.Send(new UpdateUserByIdRequest(id, data), cancellationToken);
         }
     }
 }
