@@ -4,6 +4,6 @@
     {
         IRepository<T> GetRepository<T>() where T : BaseEntity;
 
-        int SaveChanges();
+        Task<int> SaveChanges(CancellationToken cancellationToken);
     }
 }

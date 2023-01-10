@@ -13,3 +13,5 @@ global using System.ComponentModel.DataAnnotations;
 global using Microsoft.Extensions.Configuration;
 global using Verimix.Data.Concretes;
 global using Verimix.Data.Context;
+global using AutoMapper;
+global using AutoMapper.QueryableExtensions;

@@ -7,3 +7,8 @@ global using MediatR;
 global using Verimix.CQRS.Queries;
 global using Verimix.Data.Abstractions;
 global using Verimix.Data.Entities;
+global using Verimix.CQRS.Contracts;
+global using Verimix.CQRS.Commands;
+global using AutoMapper;
+global using Verimix.CQRS.CommandRequests;
+global using Verimix.Services.Concretes;

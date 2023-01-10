@@ -62,5 +62,12 @@ namespace Verimix.API.Controllers
         //    }
         //    return BadRequest(result);
         //}
+
+        [HttpGet("List")]
+        public async Task<IActionResult> GetUsers(CancellationToken cancellationToken)
+        {
+            await Task.Delay(5000, cancellationToken);
+            return Ok("3 kullanıcı var");
+        }
     }
 }

@@ -2,6 +2,14 @@
 {
     public interface IUserService
     {
-        Task<List<User>> GetUsers(CancellationToken cancellationToken);
+        Task<List<UserListDto>> GetAllUsers(CancellationToken cancellationToken);
+
+        Task<UserByIdDto> GetUserById(Guid id, CancellationToken cancellationToken);
+
+        Task<bool> CreateUser(NewUserDto data, CancellationToken cancellationToken);
+
+        Task<bool> DeleteUserById(Guid id, CancellationToken cancellationToken);
+
+        Task<bool> UpdateUser(UpdateUserDto data, CancellationToken cancellationToken);
     }
 }

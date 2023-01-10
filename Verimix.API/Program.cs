@@ -8,7 +8,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddData(builder.Configuration)
-                .AddDataServices();
+                .AddDataServices()
+                .AddAutoMapper();
 
 var app = builder.Build();
 
