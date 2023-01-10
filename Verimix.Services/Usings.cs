@@ -1,0 +1,14 @@
+﻿global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Text;
+global using System.Threading.Tasks;
+global using Verimix.Data.Entities;
+global using MediatR;
+global using Verimix.CQRS.Queries;
+global using Verimix.Services.Abstractions;
+global using Verimix.Services.Concretes;
+global using System.Reflection;
+global using Microsoft.Extensions.DependencyInjection;
+global using Verimix.Data.Context;
+global using Microsoft.EntityFrameworkCore;

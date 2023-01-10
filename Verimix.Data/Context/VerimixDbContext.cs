@@ -1,12 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Verimix.Data.Entities;
-
-namespace Verimix.Data.Context
+﻿namespace Verimix.Data.Context
 {
     public class VerimixDbContext : DbContext
     {

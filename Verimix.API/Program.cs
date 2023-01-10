@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using Verimix.Data.Context;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,12 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDataServices();
-
-builder.Services.AddDbContext<VerimixDbContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlCon"));
-});
+builder.Services.AddData(builder.Configuration)
+                .AddDataServices();
 
 var app = builder.Build();
 

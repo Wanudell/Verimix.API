@@ -1,29 +1,32 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using Verimix.Data.Context;
-
-namespace Verimix.API.Controllers
+﻿namespace Verimix.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
+        private readonly IUserService service;
         private ILogger<UserController> logger;
-        private VerimixDbContext dbContext;
+        private readonly VerimixDbContext dbContext;
 
-        public UserController(ILogger<UserController> logger, VerimixDbContext dbContext)
+        public UserController(IUserService service, ILogger<UserController> logger, VerimixDbContext dbContext)
         {
-            this.logger = logger;
             this.dbContext = dbContext;
+            this.service = service;
+            this.logger = logger;
+        }
+
+        [HttpGet("UserList")]
+        public async Task<IActionResult> GetAllUsers(CancellationToken cancellationToken)
+        {
+            var result = await service.GetUsers(cancellationToken);
+            return Ok(result);
         }
 
         [HttpGet("List")]
-        public IActionResult GetUsers()
+        public async Task<IActionResult> GetUsers(CancellationToken cancellationToken)
         {
-            var result = dbContext.Users.ToList();
-            return Ok(result);
+            await Task.Delay(5000, cancellationToken);
+            return Ok("3 kullanıcı var");
         }
     }
 }

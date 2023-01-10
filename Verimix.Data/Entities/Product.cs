@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Verimix.Data.Entities
+﻿namespace Verimix.Data.Entities
 {
+    [Table("Products")]
     public class Product : BaseEntity
     {
         public string ProductName { get; set; }

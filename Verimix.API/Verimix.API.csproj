@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Verimix.Data\Verimix.Data.csproj" />
     <ProjectReference Include="..\Verimix.Services\Verimix.Services.csproj" />
   </ItemGroup>
 

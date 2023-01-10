@@ -3,11 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Verimix.API", "Verimix.API\Verimix.API.csproj", "{9EAF323E-B08A-47E9-87AA-BA6F7C7EDA6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Verimix.API", "Verimix.API\Verimix.API.csproj", "{9EAF323E-B08A-47E9-87AA-BA6F7C7EDA6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Verimix.Data", "Verimix.Data\Verimix.Data.csproj", "{4B90F8A3-29FD-4D9E-9D3B-90736F942713}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Verimix.Data", "Verimix.Data\Verimix.Data.csproj", "{4B90F8A3-29FD-4D9E-9D3B-90736F942713}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Verimix.Services", "Verimix.Services\Verimix.Services.csproj", "{010525D7-36CA-4007-85BD-9B6A1BEBCCA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Verimix.Services", "Verimix.Services\Verimix.Services.csproj", "{010525D7-36CA-4007-85BD-9B6A1BEBCCA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{73D7324C-9A96-4639-ACB5-19582877316A}"
+	ProjectSection(SolutionItems) = preProject
+		Açıklamalar.txt = Açıklamalar.txt
+		Verimix.Data\Abstractions\IReadRepository.cs = Verimix.Data\Abstractions\IReadRepository.cs
+		Verimix.Data\Abstractions\IRepository2.cs = Verimix.Data\Abstractions\IRepository2.cs
+		Verimix.Data\Abstractions\IWriteRepository.cs = Verimix.Data\Abstractions\IWriteRepository.cs
+		Verimix.Data\Concretes\ReadRepository.cs = Verimix.Data\Concretes\ReadRepository.cs
+		Verimix.Data\Concretes\Repository2.cs = Verimix.Data\Concretes\Repository2.cs
+		Verimix.Data\Concretes\WriteRepository.cs = Verimix.Data\Concretes\WriteRepository.cs
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Verimix.CQRS", "Verimix.CQRS\Verimix.CQRS.csproj", "{9160279E-EC6A-4DAF-B492-5FA65AA2F999}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Verimix.CQRS.Management", "Verimix.CQRS.Management\Verimix.CQRS.Management.csproj", "{1370A010-A0B7-413D-AAEB-8DE7159E2227}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +42,14 @@ Global
 		{010525D7-36CA-4007-85BD-9B6A1BEBCCA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{010525D7-36CA-4007-85BD-9B6A1BEBCCA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{010525D7-36CA-4007-85BD-9B6A1BEBCCA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9160279E-EC6A-4DAF-B492-5FA65AA2F999}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9160279E-EC6A-4DAF-B492-5FA65AA2F999}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9160279E-EC6A-4DAF-B492-5FA65AA2F999}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9160279E-EC6A-4DAF-B492-5FA65AA2F999}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1370A010-A0B7-413D-AAEB-8DE7159E2227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1370A010-A0B7-413D-AAEB-8DE7159E2227}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1370A010-A0B7-413D-AAEB-8DE7159E2227}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1370A010-A0B7-413D-AAEB-8DE7159E2227}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

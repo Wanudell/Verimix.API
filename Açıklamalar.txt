@@ -1,0 +1,50 @@
+MediatR Design Pattern :
+
+Kullanabilmek için Nuget'den MediatR ve MediatR.DependencyInjection paketlerini Services Library'mize kurmalýyýz.
+
+MediatR bize her bir iþlemi tek tek yapmaktansa hangi iþlemin nereye gideceðini saðlayýp kod tekrarýný engelleyen bir design pattern'dýr.
+Ýngilizce anlamý arabulucu taþýyý olan Mediator'dan gelmektedir ismi.
+Bize Fat Service oluþturmamamýz için gerekli bir modüler yapýdýr. Nasýl ki Fat Controller oluþturmamak gerektiði için Repository Design Pattern kullanýyoruz.
+Fat Service oluþturmamak içinde MediatR kullanmamýz gerekir.
+MediatR kullanýmýnda bütün yapýlacak olan iþlemler Async çalýþacaktýr. Yani await ve async iþlemleri ortaya çýkacaktýr.
+
+Sync çalýþmalar biri bitmeden diðerinin baþlamadýðý iþlemlerdir. Async iþlemler ise günümüzde iþlemcilerimizin de geliþmesi ile ayný anda birden fazla iþlemin 
+baþlatýlabilmesi mümkündür. Buna multi tasking veya multi treading denir. Örneðin 3.2 ghz bir iþlemci de 3 milyara kadar iþlem yapabilme kapasitesi vardýr.
+Async yapmak için methodumuzu Task yapmamýz ve baþýna async tag'ý eklememiz gerekmektedir. Return olarak da await eklenmelidir. Async çalýþma içerisinde task kullanýlmalý
+TPL Kütüphanesinden okunulabilir. Task Paralel Library demektir.
+Async iþlemler uzun süreli de olabilir kýsa süreli de olabilir. Uzun süreli olmalarýnda problem yaþandýðý anda CancellationToken kullanýlarak iþlem iptal edilebilir ve 
+durdurulabilir.
+
+MediatR'ýn bizi bir class'a gönderip; tek bir süreci tek bir class'a baðlamamýz iþine CQRS pattern deniyor. 
+Command Query Responsibility Seggregation => Command ve Query isteklerinin birbirinden ayrýldýðý pattern'dir.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Repository Design Pattern : 
+
+Repository kullanýmýnýn amacý entity ne verirsek onun servisi olarak hareket etmesi içindir.
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Unit Of Work Design Pattern : 
+
+Database iþlemleri ile ilgilenen pattern'dir. Unit of work sarmalayýcýdýr. Entity'nin servisini döner bize ve o servis iþlemini yaptýktan sonra sürekli database'e
+iþlem yaptýrmaktan ve yoðunluk oluþturmaktansa iþlemleri en sonunda tamamlar ve saveChanges uygular.
+
+
+
+
+
+
+
+
+
+
+MediatR<UnitOfWork<Repository<Entity>>>

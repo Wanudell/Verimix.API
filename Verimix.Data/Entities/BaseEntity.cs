@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Verimix.Data.Entities
+﻿namespace Verimix.Data.Entities
 {
     public class BaseEntity
     {
@@ -9,5 +7,6 @@ namespace Verimix.Data.Entities
 
         public bool IsDeleted { get; set; }
         public bool IsActive { get; set; }
+        public DateTime? ModifiedAt { get; set; }
     }
 }

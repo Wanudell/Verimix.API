@@ -1,0 +1,9 @@
+﻿global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Text;
+global using System.Threading.Tasks;
+global using MediatR;
+global using Verimix.CQRS.Queries;
+global using Verimix.Data.Abstractions;
+global using Verimix.Data.Entities;
