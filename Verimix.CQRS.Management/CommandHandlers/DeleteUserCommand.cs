@@ -3,7 +3,6 @@
     internal class DeleteUserCommand : IRequestHandler<DeleteUserByIdRequest, bool>
     {
         private readonly IUnitOfWork unitOfWork;
-        private readonly IMapper mapper;
 
         public DeleteUserCommand(IUnitOfWork unitOfWork)
         {

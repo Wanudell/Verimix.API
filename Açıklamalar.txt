@@ -57,3 +57,18 @@ AutoMapper :
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 
 MediatR<UnitOfWork<Repository<Entity>>>
+
+
+
+
+
+
+
+Deðiþecek bölümler : 
+
+VMix yazýlacak isimler ve dbcontext
+Guid Id -> int Id
+Versiyonlama
+WatchDog kurulumu
+JWT Bearer
+Swagger Açýklama Dokümantasyonu eklenecek. Araþtýr.

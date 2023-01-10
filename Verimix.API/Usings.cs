@@ -4,3 +4,8 @@ global using Verimix.Data.Context;
 global using Verimix.Services.Concretes;
 global using Verimix.Services.Abstractions;
 global using Verimix.CQRS.Contracts;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Storage;
+global using Verimix.CQRS.CommandRequests;
+global using Microsoft.Extensions.Logging;
+global using Verimix.Data.Entities;

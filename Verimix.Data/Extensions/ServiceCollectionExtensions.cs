@@ -1,19 +1,20 @@
-﻿namespace Microsoft.Extensions.DependencyInjection;
-
-public static class ServiceCollectionExtensions
+﻿namespace Microsoft.Extensions.DependencyInjection
 {
-    public static IServiceCollection AddData(this IServiceCollection services, IConfiguration configuration)
+    public static class ServiceCollectionExtensions
     {
-        services.AddScoped<DbContext, VerimixDbContext>();
-        services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-        var section = configuration.GetSection($"{nameof(Settings)}:Database");
-        var settings = section.Get<Settings.DatabaseConfiguration>();
-        services.AddDbContext<VerimixDbContext>(builder =>
+        public static IServiceCollection AddData(this IServiceCollection services, IConfiguration configuration)
         {
-            builder.UseSqlServer(settings.ConnectionString);
-        });
+            services.AddScoped<DbContext, VerimixDbContext>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-        return services;
+            var section = configuration.GetSection($"{nameof(Settings)}:Database");
+            var settings = section.Get<Settings.DatabaseConfiguration>();
+            services.AddDbContext<VerimixDbContext>(builder =>
+            {
+                builder.UseSqlServer(settings.ConnectionString);
+            });
+
+            return services;
+        }
     }
 }

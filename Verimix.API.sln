@@ -12,19 +12,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{73D7324C-9A96-4639-ACB5-19582877316A}"
 	ProjectSection(SolutionItems) = preProject
 		Açıklamalar.txt = Açıklamalar.txt
-		Verimix.Data\Abstractions\IReadRepository.cs = Verimix.Data\Abstractions\IReadRepository.cs
-		Verimix.Data\Abstractions\IRepository2.cs = Verimix.Data\Abstractions\IRepository2.cs
-		Verimix.Data\Abstractions\IWriteRepository.cs = Verimix.Data\Abstractions\IWriteRepository.cs
-		Verimix.Data\Concretes\ReadRepository.cs = Verimix.Data\Concretes\ReadRepository.cs
-		Verimix.Data\Concretes\Repository2.cs = Verimix.Data\Concretes\Repository2.cs
-		Verimix.Data\Concretes\WriteRepository.cs = Verimix.Data\Concretes\WriteRepository.cs
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Verimix.CQRS", "Verimix.CQRS\Verimix.CQRS.csproj", "{9160279E-EC6A-4DAF-B492-5FA65AA2F999}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Verimix.CQRS.Management", "Verimix.CQRS.Management\Verimix.CQRS.Management.csproj", "{1370A010-A0B7-413D-AAEB-8DE7159E2227}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Verimix.Mapper", "Verimix.Mapper\Verimix.Mapper.csproj", "{F456A4E0-8DC4-4D8A-824C-8E48D2884E96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Verimix.Mapper", "Verimix.Mapper\Verimix.Mapper.csproj", "{F456A4E0-8DC4-4D8A-824C-8E48D2884E96}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

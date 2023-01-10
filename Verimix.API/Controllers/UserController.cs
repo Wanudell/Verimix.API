@@ -1,6 +1,4 @@
-﻿using Verimix.CQRS.CommandRequests;
-
-namespace Verimix.API.Controllers
+﻿namespace Verimix.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

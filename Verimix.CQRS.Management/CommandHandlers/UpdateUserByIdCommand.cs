@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-
-namespace Verimix.CQRS.Management.CommandHandlers
+﻿namespace Verimix.CQRS.Management.CommandHandlers
 {
     internal class UpdateUserByIdCommand : IRequestHandler<UpdateUserByIdRequest, bool>
     {

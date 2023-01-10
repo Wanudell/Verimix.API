@@ -1,13 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using Verimix.Data.Context;
-using Verimix.Data.Entities;
-using Verimix.Services.Abstractions;
-using Verimix.Services.Concretes;
-
-namespace Verimix.API.Controllers
+﻿namespace Verimix.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -1,7 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
-using Verimix.Data.Context;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
