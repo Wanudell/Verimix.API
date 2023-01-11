@@ -2,13 +2,13 @@
 {
     public class DeleteUserByIdRequest : IRequest<bool>
     {
-        public DeleteUserByIdRequest(Guid id, bool forceDelete)
+        public DeleteUserByIdRequest(int id, bool forceDelete)
         {
             Id = id;
             ForceDelete = forceDelete;
         }
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public bool ForceDelete { get; set; }
     }
 }

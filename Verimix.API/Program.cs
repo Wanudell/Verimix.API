@@ -4,21 +4,22 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddData(builder.Configuration)
-                .AddDataServices()
-                .AddAutoMapper();
+				.AddDataServices()
+				.AddAutoMapper();
+builder.Services.WatchDogSettings(builder.Configuration);
+
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+	app.UseSwagger();
+	app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
+app.UseWatchDogExceptionLogger();
+app.WatchDogAppSettings(builder.Configuration);
 app.Run();

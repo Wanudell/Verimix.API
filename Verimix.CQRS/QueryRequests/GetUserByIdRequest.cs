@@ -2,11 +2,11 @@
 {
     public class GetUserByIdRequest : IRequest<UserByIdDto>
     {
-        public GetUserByIdRequest(Guid id)
+        public GetUserByIdRequest(int id)
         {
             Id = id;
         }
 
-        public Guid Id { get; }
+        public int Id { get; }
     }
 }

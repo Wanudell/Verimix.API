@@ -9,3 +9,6 @@ global using Microsoft.EntityFrameworkCore.Storage;
 global using Verimix.CQRS.CommandRequests;
 global using Microsoft.Extensions.Logging;
 global using Verimix.Data.Entities;
+global using WatchDog;
+global using WatchDog.src.Enums;
+global using Verimix.API.WatchDog;

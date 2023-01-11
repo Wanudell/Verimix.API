@@ -23,7 +23,7 @@
         }
 
         [HttpGet("GetUser/{id}")]
-        public async Task<IActionResult> GetUserById([FromRoute] Guid id, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetUserById([FromRoute] int id, CancellationToken cancellationToken)
         {
             var result = await service.GetUserById(id, cancellationToken);
             return Ok(result);
@@ -37,7 +37,7 @@
         }
 
         [HttpDelete("DeleteUser/{id}")]
-        public async Task<IActionResult> DeleteUserById([FromRoute] Guid id, bool forceDelete, CancellationToken cancellationToken)
+        public async Task<IActionResult> DeleteUserById([FromRoute] int id, bool forceDelete, CancellationToken cancellationToken)
         {
             var result = await service.DeleteUserById(id, forceDelete, cancellationToken);
             if (result)
@@ -59,7 +59,7 @@
         }
 
         [HttpPut("UpdateUser/{id}")]
-        public async Task<IActionResult> UpdateUserById([FromRoute] Guid id, UpdateUserByIdDto data, CancellationToken cancellationToken)
+        public async Task<IActionResult> UpdateUserById([FromRoute] int id, UpdateUserByIdDto data, CancellationToken cancellationToken)
         {
             var result = await service.UpdateUserById(id, data, cancellationToken);
             if (result)

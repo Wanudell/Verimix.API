@@ -2,13 +2,13 @@
 {
     public class UpdateUserByIdRequest : IRequest<bool>
     {
-        public UpdateUserByIdRequest(Guid id, UpdateUserByIdDto data)
+        public UpdateUserByIdRequest(int id, UpdateUserByIdDto data)
         {
             Id = id;
             Data = data;
         }
 
-        public Guid Id { get; }
+        public int Id { get; }
         public UpdateUserByIdDto Data { get; }
     }
 }

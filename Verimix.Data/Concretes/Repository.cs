@@ -18,7 +18,7 @@
             Update(entity);
         }
 
-        public Task<T> Get(Guid id, CancellationToken cancellationToken)
+        public Task<T> Get(int id, CancellationToken cancellationToken)
         {
             return dbContext.Set<T>().SingleOrDefaultAsync(f => f.Id == id, cancellationToken);
         }
@@ -62,12 +62,12 @@
             dbContext.Set<T>().Update(entity);
         }
 
-        public async Task Delete(Guid id, CancellationToken cancellationToken)
+        public async Task Delete(int id, CancellationToken cancellationToken)
         {
             var entity = await Get(id, cancellationToken);
             entity.IsDeleted = true;
             entity.IsActive = false;
             Update(entity);
         }
-    }
+	}
 }

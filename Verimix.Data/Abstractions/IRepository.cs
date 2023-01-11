@@ -2,7 +2,7 @@
 {
     public interface IRepository<T> where T : BaseEntity
     {
-        Task<T> Get(Guid id, CancellationToken cancellationToken);
+        Task<T> Get(int id, CancellationToken cancellationToken);
 
         Task<T> Get(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken);
 
@@ -20,6 +20,6 @@
 
         void Delete(T entity);
 
-        Task Delete(Guid id, CancellationToken cancellationToken);
+        Task Delete(int id, CancellationToken cancellationToken);
     }
 }
