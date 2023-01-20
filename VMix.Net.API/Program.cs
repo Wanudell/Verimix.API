@@ -4,7 +4,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAuthentication();
 builder.Services.AddAuthorization();
-
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddHttpClient();
 builder.Services.AddData(builder.Configuration)
 				.AddDataServices()
 				.AddAutoMapper()

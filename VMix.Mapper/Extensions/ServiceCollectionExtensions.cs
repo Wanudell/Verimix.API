@@ -6,7 +6,9 @@ public static class ServiceCollectionExtensions
     {
         services.AddAutoMapper(config =>
         {
-            config.AddProfile<EntitiesProfile>();
+            config.AddProfile<ProfileUser>();
+            config.AddProfile<ProfileRole>();
+            config.AddProfile<ProfileAuth>();
         });
 
         return services;

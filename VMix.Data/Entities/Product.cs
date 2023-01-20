@@ -3,6 +3,6 @@
     [Table("Products")]
     public class Product : BaseEntity
     {
-        public string ProductName { get; set; }
+        public string productName { get; set; }
     }
 }

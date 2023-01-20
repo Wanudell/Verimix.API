@@ -22,6 +22,113 @@ namespace VMix.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("VMix.Data.Entities.ConfigNavMenu", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("CreatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("DeletedBy")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ModifiedBy")
+                        .HasColumnType("int");
+
+                    b.Property<string>("href")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("icon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("isHeader")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("isParent")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("lineNo")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("parentNodeID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ConfigNavMenus");
+                });
+
+            modelBuilder.Entity("VMix.Data.Entities.Permission", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("CreatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("DeletedBy")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ModifiedBy")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("customerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("permissions")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("roleId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("route")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Permissions");
+                });
+
             modelBuilder.Entity("VMix.Data.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -54,12 +161,52 @@ namespace VMix.Data.Migrations
                     b.Property<int?>("ModifiedBy")
                         .HasColumnType("int");
 
-                    b.Property<string>("ProductName")
+                    b.Property<string>("productName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("VMix.Data.Entities.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("CreatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("DeletedBy")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ModifiedBy")
+                        .HasColumnType("int");
+
+                    b.Property<string>("roleName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("VMix.Data.Entities.User", b =>
@@ -82,17 +229,6 @@ namespace VMix.Data.Migrations
                     b.Property<int?>("DeletedBy")
                         .HasColumnType("int");
 
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ExpiresInMinutes")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("nvarchar(32)");
-
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
@@ -105,19 +241,45 @@ namespace VMix.Data.Migrations
                     b.Property<int?>("ModifiedBy")
                         .HasColumnType("int");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PasswordHash")
+                    b.Property<DateTime?>("expiresInMinutes")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("firstLoginDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("fullName")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("nvarchar(32)");
+
+                    b.Property<DateTime?>("lastLoginDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("password")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("RefreshToken")
+                    b.Property<string>("passwordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("profilePicture")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("qrToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("refreshToken")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Token")
+                    b.Property<int?>("roleId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("token")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserName")
+                    b.Property<string>("userName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

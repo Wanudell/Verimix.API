@@ -23,4 +23,8 @@
     <ProjectReference Include="..\VMix.Mapper\VMix.Mapper.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\App\" />
+  </ItemGroup>
+
 </Project>

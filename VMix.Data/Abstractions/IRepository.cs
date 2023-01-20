@@ -8,6 +8,8 @@ public interface IRepository<T> where T : BaseEntity
 
     Task<TDto> Get<TDto>(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken);
 
+    Task<List<T>> GetAll(CancellationToken cancellationToken);
+
     Task<List<T>> GetAll(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken);
 
     Task<List<TDto>> GetAll<TDto>(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken);

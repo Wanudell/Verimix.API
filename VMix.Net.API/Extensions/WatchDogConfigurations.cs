@@ -8,7 +8,8 @@
             services.AddWatchDogServices(opt =>
             {
                 opt.IsAutoClear = false;
-                opt.ClearTimeSchedule = WatchDogAutoClearScheduleEnum.Monthly;
+                //İhtiyaç olursa temizleme işlemini otomatik yapmak için.
+                //opt.ClearTimeSchedule = WatchDogAutoClearScheduleEnum.Monthly;
                 opt.SetExternalDbConnString = settings;
                 opt.SqlDriverOption = WatchDogSqlDriverEnum.MSSQL;
             });

@@ -14,4 +14,9 @@
     <ProjectReference Include="..\VMix.Data\VMix.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="QueryRequests\ConfigQueryRequests\" />
+    <Folder Include="QueryRequests\PermissionQueryRequests\" />
+  </ItemGroup>
+
 </Project>

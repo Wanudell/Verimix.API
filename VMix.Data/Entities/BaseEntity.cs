@@ -1,17 +1,15 @@
-﻿namespace VMix.Data.Entities
-{
-    public class BaseEntity
-    {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+﻿namespace VMix.Data.Entities;
 
-        public bool IsDeleted { get; set; }
-        public bool IsActive { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime? ModifiedAt { get; set; }
-        public DateTime? DeletedAt { get; set; }
-        public int? CreatedBy { get; set; }
-        public int? ModifiedBy { get; set; }
-        public int? DeletedBy { get; set; }
-    }
+public class BaseEntity
+{
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int id { get; set; }
+    public int createdBy { get; set; }
+    public int modifiedBy { get; set; }
+    public int? deletedBy { get; set; }
+    public bool isDeleted { get; set; }
+    public bool isActive { get; set; }
+    public DateTime createdAt { get; set; }
+    public DateTime? modifiedAt { get; set; }
+    public DateTime? deletedAt { get; set; }
 }

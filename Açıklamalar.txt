@@ -86,3 +86,69 @@ Request'i karşılayacak Handler oluşturulur.
 Automapper'da Entity ve Dto eşleştirilir.
 
 CQRS'de her bir isteğe karşılık bir command bir de query olması gerekir.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+- CONTROLLERS -
+
+-> NavMenuControllers (WithAtakan)
+- 
+-
+-
+-
+-
+-
+-> PermissinController (With Atakan)
+- 
+-
+-
+-
+-
+-
+-> RoleController
+
+- GetAllRoles
+- GetAllRoles with Filters
+- GetRoleById
+- CreateRole
+- DeleteRoleById
+- UpdateRoleById			Bitti
+
+-> UserController Authorize
+
+- GetAllUsers with filter
+- GetUserById
+- GetUserByToken
+- CreateUser
+- DeleteUserById
+- UpdateUser - Silinecek
+- UpdateUserById			Bitti
+
+-> AuthController AllowAnonymous
+
+- LoginUser
+- RegisterUser ?
+- RefreshToken
+- PasswordReset (EKLENECEK) 
+- Forget Password (EKLENECEK)		Çalışılıyor.
+
+-> ConfigController
+
+-
+-
+-
+-
+
+-> LogController
+
+-
+-
+-
+-
+
+
+IService ve Service'de method oluşturulur. A
+rdından Dto oluşturulur. 
+Sonra Dto'nun request'i oluşturulur. 
+Ardından RequestHandler oluşturulur. 
+En sonunda Map'lenmesi gereken Dto ve Entity arasında CreateMap ilişkisi oluşturulur ve API ucu yazılarak kullanıma hazır olur.

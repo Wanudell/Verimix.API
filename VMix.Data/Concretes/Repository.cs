@@ -15,14 +15,14 @@ internal class Repository<T> : IRepository<T> where T : BaseEntity
 
     public void Delete(T entity)
     {
-        entity.IsDeleted = true;
-        entity.IsActive = false;
+        entity.isDeleted = true;
+        entity.isActive = false;
         Update(entity);
     }
 
     public Task<T> Get(int id, CancellationToken cancellationToken)
     {
-        return dbContext.Set<T>().SingleOrDefaultAsync(f => f.Id == id, cancellationToken);
+        return dbContext.Set<T>().SingleOrDefaultAsync(f => f.id == id, cancellationToken);
     }
 
     public Task<T> Get(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken)
@@ -33,6 +33,11 @@ internal class Repository<T> : IRepository<T> where T : BaseEntity
     public Task<TDto> Get<TDto>(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken)
     {
         return dbContext.Set<T>().Where(predicate).ProjectTo<TDto>(mapper.ConfigurationProvider).SingleOrDefaultAsync(cancellationToken);
+    }
+
+    public Task<List<T>> GetAll(CancellationToken cancellationToken)
+    {
+        return dbContext.Set<T>().ToListAsync(cancellationToken);
     }
 
     public Task<List<T>> GetAll(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken)
@@ -52,30 +57,30 @@ internal class Repository<T> : IRepository<T> where T : BaseEntity
 
     public void Insert(T entity)
     {
-        entity.IsActive = true;
-        entity.IsDeleted = false;
-        entity.CreatedAt = DateTime.Now;
-        entity.ModifiedAt = DateTime.Now;
+        entity.isActive = true;
+        entity.isDeleted = false;
+        entity.createdAt = DateTime.Now;
+        entity.modifiedAt = DateTime.Now;
         if (claims.IsAuthenticated)
         {
-            entity.CreatedBy = claims.CurrentUser.Id;
-            entity.ModifiedBy = claims.CurrentUser.Id;
+            entity.createdBy = claims.CurrentUser.Id;
+            entity.modifiedBy = claims.CurrentUser.Id;
         }
         dbContext.Set<T>().Add(entity);
     }
 
     public void Update(T entity)
     {
-        entity.ModifiedAt = DateTime.Now;
+        entity.modifiedAt = DateTime.Now;
         dbContext.Set<T>().Update(entity);
     }
 
     public async Task Delete(int id, CancellationToken cancellationToken)
     {
         var entity = await Get(id, cancellationToken);
-        entity.IsDeleted = true;
-        entity.IsActive = false;
-        entity.DeletedBy = claims.CurrentUser.Id;
+        entity.isDeleted = true;
+        entity.isActive = false;
+        entity.deletedBy = claims.CurrentUser.Id;
         Update(entity);
     }
 	}
