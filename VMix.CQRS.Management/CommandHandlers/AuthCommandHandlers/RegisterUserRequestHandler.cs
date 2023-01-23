@@ -1,6 +1,4 @@
-﻿using VMix.CQRS.CommandRequests.AuthCommandRequests;
-
-namespace VMix.CQRS.Management.CommandHandlers.AuthCommandHandlers;
+﻿namespace VMix.CQRS.Management.CommandHandlers.AuthCommandHandlers;
 
 internal class RegisterUserRequestHandler : IRequestHandler<RegisterUserRequest, bool>
 {
@@ -19,7 +17,7 @@ internal class RegisterUserRequestHandler : IRequestHandler<RegisterUserRequest,
     {
         var key = config.GetValue<string>("Jwt:Key");
         var expires = config.GetValue<int>("Jwt:ExpiresInMinutes");
-        var repository = unitOfWork.GetRepository<User>();
+        var repository = unitOfWork.GetRepository<AuthUser>();
         var existingUser = await repository.Get(x => x.userName == request.Data.UserName || x.email == request.Data.Email, cancellationToken);
         if (existingUser != null)
         {
@@ -42,8 +40,8 @@ internal class RegisterUserRequestHandler : IRequestHandler<RegisterUserRequest,
         var token = handler.CreateToken(tokenDescriptor);
         var jwtToken = handler.WriteToken(token);
 
-        var entity = mapper.Map<User>(request.Data);
-        entity.expiresInMinutes = DateTime.Now.AddMinutes(expires);
+        var entity = mapper.Map<AuthUser>(request.Data);
+        entity.refreshTokenEndDate = DateTime.Now.AddMinutes(expires);
         entity.token = jwtToken;
         entity.refreshToken = Guid.NewGuid();
         entity.passwordHash = Guid.NewGuid().ToString();

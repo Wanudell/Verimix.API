@@ -13,8 +13,8 @@ internal class UpdateUserByIdRequestHandler : IRequestHandler<UpdateUserByIdRequ
 
     public async Task<bool> Handle(UpdateUserByIdRequest request, CancellationToken cancellationToken)
     {
-        var repository = unitOfWork.GetRepository<User>();
-        var entity = await repository.Get(x => !x.isDeleted && x.id == request.Id, cancellationToken);
+        var repository = unitOfWork.GetRepository<AuthUser>();
+        var entity = await repository.Get(x => x.isDeleted == false && x.id == request.Id, cancellationToken);
         if (entity == null)
         {
             return false;

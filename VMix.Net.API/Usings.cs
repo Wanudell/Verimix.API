@@ -22,3 +22,4 @@ global using System.Security.Claims;
 global using VMix.Net.API.Helpers;
 global using VMix.CQRS.Contracts.AuthContracts;
 global using VMix.CQRS.Contracts.RoleContracts;
+global using VMix.CQRS.Contracts.PermissionContracts;

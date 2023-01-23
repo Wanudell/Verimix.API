@@ -11,7 +11,7 @@ public class GetRoleByIdRequestHandler : IRequestHandler<GetRoleByIdRequest, Get
 
     public Task<GetRoleByIdDto> Handle(GetRoleByIdRequest request, CancellationToken cancellationToken)
     {
-        var repository = unitOfWork.GetRepository<Role>();
+        var repository = unitOfWork.GetRepository<AuthRole>();
         return repository.Get<GetRoleByIdDto>(x => x.id == request.Id, cancellationToken);
     }
 }

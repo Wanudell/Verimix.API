@@ -11,7 +11,7 @@ public class GetUserByTokenRequestHandler : IRequestHandler<GetUserByTokenReques
 
     public async Task<GetUserByTokenDto> Handle(GetUserByTokenRequest request, CancellationToken cancellationToken)
     {
-        var repository = unitOfWork.GetRepository<User>();
+        var repository = unitOfWork.GetRepository<AuthUser>();
         return await repository.Get<GetUserByTokenDto>(x => x.token == request.Token, cancellationToken);
     }
 }

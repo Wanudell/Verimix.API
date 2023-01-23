@@ -4,11 +4,11 @@ internal class ProfileRole : Profile
 {
     public ProfileRole()
     {
-        CreateMap<Role, GetRoleListDto>();
-        CreateMap<CreateRoleDto, Role>();
-        CreateMap<Role, GetRoleByIdDto>();
-        CreateMap<UpdateRoleDto, Role>();
-        CreateMap<UpdateRoleByIdDto, Role>();
-        CreateMap<Role, GetRoleListDto>();
+        CreateMap<AuthRole, GetRoleListDto>();
+        CreateMap<CreateRoleDto, AuthRole>();
+        CreateMap<AuthRole, GetRoleByIdDto>();
+        CreateMap<UpdateRoleDto, AuthRole>();
+        CreateMap<UpdateRoleByIdDto, AuthRole>();
+        CreateMap<AuthRole, GetRoleListDto>();
     }
 }

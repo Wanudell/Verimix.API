@@ -13,7 +13,7 @@ public class ResetPasswordRequestHandler : IRequestHandler<ResetPasswordRequest,
 
     public async Task<bool> Handle(ResetPasswordRequest request, CancellationToken cancellationToken)
     {
-        var repository = unitOfWork.GetRepository<User>();
+        var repository = unitOfWork.GetRepository<AuthUser>();
         var entity = await repository.Get(x => x.id == request.Data.id, cancellationToken);
         if((entity == null) || (entity.password != request.Data.oldPassword) || (request.Data.password != request.Data.confirmPassword))
         {

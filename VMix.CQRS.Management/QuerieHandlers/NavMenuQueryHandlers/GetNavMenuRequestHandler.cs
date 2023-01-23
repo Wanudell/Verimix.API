@@ -12,8 +12,8 @@ public class GetNavMenuRequestHandler : IRequestHandler<GetNavMenuRequest, List<
     public async Task<List<NavMenuResultDto>> Handle(GetNavMenuRequest request, CancellationToken cancellationToken)
     {
         var token = request.Token;
-        var roleId = unitOfWork.GetRepository<User>().GetAll<GetUserListDto>(x => x.token == token, cancellationToken).Result.Select(x => x.roleId).FirstOrDefault();
-        var allowedRoutes = unitOfWork.GetRepository<Permission>().GetAll<PermissionDto>(x => x.roleId == roleId && Convert.ToInt32(x.permissions) >= 100, cancellationToken).Result.Select(x => x.route).ToList();
+        var roleId = unitOfWork.GetRepository<AuthUser>().GetAll<GetUserListDto>(x => x.token == token, cancellationToken).Result.Select(x => x.roleId).FirstOrDefault();
+        var allowedRoutes = unitOfWork.GetRepository<AuthPermission>().GetAll<PermissionDto>(x => x.roleId == roleId && Convert.ToInt32(x.permission) >= 100, cancellationToken).Result.Select(x => x.route).ToList();
         var navMenu = unitOfWork.GetRepository<ConfigNavMenu>().GetAll<ConfigNavMenuDto>(x => x.isHeader, cancellationToken).Result.OrderBy(x => x.lineNr).ToList();
         var headerNodes = navMenu.Where(x => x.isHeader).OrderBy(x => x.lineNr).ToList();
 

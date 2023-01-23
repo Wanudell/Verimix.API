@@ -11,3 +11,6 @@ global using VMix.CQRS.QueryRequests.NavMenuQueryRequest;
 global using VMix.CQRS.Contracts.RoleContracts;
 global using VMix.CQRS.QueryRequests.RoleQueryRequests;
 global using VMix.CQRS.CommandRequests.RoleCommandRequests;
+global using AutoMapper;
+global using VMix.CQRS.Contracts.PermissionContracts;
+global using VMix.CQRS.QueryRequests.PermissionQueryRequests;

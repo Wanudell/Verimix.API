@@ -1,11 +1,11 @@
 ﻿namespace VMix.Data.Entities;
 
-[Table("Users")]
-public class User : BaseEntity
+[Table("AuthUsers")]
+public class AuthUser : BaseEntity
 {
     [Required]
     [MaxLength(32)]
-    public string fullName { get; set; }
+    public string name { get; set; }
     public string userName { get; set; }
     public string email { get; set; }
     public string password { get; set; }
@@ -15,7 +15,7 @@ public class User : BaseEntity
     public string? profilePicture { get; set; }
     public int? roleId { get; set; }
     public Guid refreshToken { get; set; }
-    public DateTime? expiresInMinutes { get; set; }
+    public DateTime? refreshTokenEndDate { get; set; }
     public DateTime? lastLoginDate { get; set; }
     public DateTime? firstLoginDate { get; set; }
 }

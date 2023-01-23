@@ -15,7 +15,7 @@ internal class RefreshTokenRequestHandler : IRequestHandler<RefreshTokenRequest,
     {
         var key = config.GetValue<string>("Jwt:Key");
         var expires = config.GetValue<int>("Jwt:ExpiresInMinutes");
-        var repository = unitOfWork.GetRepository<User>();
+        var repository = unitOfWork.GetRepository<AuthUser>();
         var entity = await repository.Get(x => x.id == request.Data.Id, cancellationToken);
         if (entity == null)
         {

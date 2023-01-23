@@ -1,7 +1,7 @@
 ﻿namespace VMix.Data.Entities;
 
-[Table("Roles")]
-public class Role : BaseEntity
+[Table("AuthRoles")]
+public class AuthRole : BaseEntity
 {
     public string roleName { get; set; }
 }

@@ -13,8 +13,8 @@ internal class UpdateRoleByIdRequestHandler : IRequestHandler<UpdateRoleByIdRequ
 
     public async Task<bool> Handle(UpdateRoleByIdRequest request, CancellationToken cancellationToken)
     {
-        var repository = unitOfWork.GetRepository<Role>();
-        var entity = await repository.Get(x => !x.isDeleted && x.id == request.Id, cancellationToken);
+        var repository = unitOfWork.GetRepository<AuthRole>();
+        var entity = await repository.Get(x => x.isDeleted == false && x.id == request.Id, cancellationToken);
 
         if (entity == null)
         {

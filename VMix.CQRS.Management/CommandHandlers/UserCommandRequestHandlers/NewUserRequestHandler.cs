@@ -13,13 +13,13 @@ internal class NewUserRequestHandler : IRequestHandler<NewUserRequest, bool>
 
     public async Task<bool> Handle(NewUserRequest request, CancellationToken cancellationToken)
     {
-        var repository = unitOfWork.GetRepository<User>();
+        var repository = unitOfWork.GetRepository<AuthUser>();
         var existingUser = await repository.Get(x => x.email == request.Data.Email || x.userName == request.Data.UserName, cancellationToken);
         if (existingUser == null)
         {
             return false;
         }
-        var entity = mapper.Map<User>(request.Data);
+        var entity = mapper.Map<AuthUser>(request.Data);
         entity.passwordHash = Guid.NewGuid().ToString();
         entity.password = (request.Data.Password + entity.passwordHash).CreateHash();
         repository.Insert(entity);

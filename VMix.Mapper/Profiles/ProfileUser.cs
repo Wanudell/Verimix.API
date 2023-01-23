@@ -4,18 +4,18 @@ internal class ProfileUser : Profile
 {
     public ProfileUser()
     {
-        CreateMap<User, GetUserListDto>();
-        CreateMap<CreateUserDto, User>();
-        CreateMap<User, GetUserByIdDto>();
-        CreateMap<UpdateUserDto, User>();
-        CreateMap<UpdateUserByIdDto, User>();
-        CreateMap<LoginUserDto, User>();
-        CreateMap<RegisterUserDto, User>();
-        CreateMap<RefreshTokenDto, User>();
-        CreateMap<User, GetUserByTokenDto>();
-        CreateMap<ResetPasswordDto, User>();
+        CreateMap<AuthUser, GetUserListDto>();
+        CreateMap<CreateUserDto, AuthUser>();
+        CreateMap<AuthUser, GetUserByIdDto>();
+        CreateMap<UpdateUserDto, AuthUser>();
+        CreateMap<UpdateUserByIdDto, AuthUser>();
+        CreateMap<LoginUserDto, AuthUser>();
+        CreateMap<RegisterUserDto, AuthUser>();
+        CreateMap<RefreshTokenDto, AuthUser>();
+        CreateMap<AuthUser, GetUserByTokenDto>();
+        CreateMap<ResetPasswordDto, AuthUser>();
 
         CreateMap<ConfigNavMenu, ConfigNavMenuDto>();
-        CreateMap<Permission, PermissionDto>();
+        CreateMap<AuthPermission, PermissionDto>();
     }
 }

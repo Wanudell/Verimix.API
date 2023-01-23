@@ -15,7 +15,7 @@ internal class LoginUserRequestHandler : IRequestHandler<LoginUserRequest, Login
     {
         var key = config.GetValue<string>("Jwt:Key");
         var expires = config.GetValue<int>("Jwt:ExpiresInMinutes");
-        var repository = unitOfWork.GetRepository<User>();
+        var repository = unitOfWork.GetRepository<AuthUser>();
         var entity = await repository.Get(x => x.userName == request.Data.UserName, cancellationToken);
         if (entity == null)
         {
@@ -46,6 +46,6 @@ internal class LoginUserRequestHandler : IRequestHandler<LoginUserRequest, Login
         entity.refreshToken = Guid.NewGuid();
         repository.Update(entity);
         unitOfWork.SaveChanges(cancellationToken);
-        return new LoginResultDto { Token = jwtToken, DisplayName = entity.fullName, RefreshToken = entity.refreshToken.ToString(), Id = entity.id };
+        return new LoginResultDto { Token = jwtToken, DisplayName = entity.name, RefreshToken = entity.refreshToken.ToString(), Id = entity.id };
     }
 }

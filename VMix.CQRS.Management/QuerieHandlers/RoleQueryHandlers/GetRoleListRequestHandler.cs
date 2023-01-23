@@ -12,7 +12,7 @@ public class GetRoleListRequestHandler : IRequestHandler<GetRoleListRequest, Lis
     public Task<List<GetRoleListDto>> Handle(GetRoleListRequest request, CancellationToken cancellationToken)
     //Handle methodu GetRoleListRequest'i giriş Task<List<Role>>'ı da dönüş olarak kullanıyor.
     {
-        var repository = unitOfWork.GetRepository<User>();
-        return repository.GetAll<GetRoleListDto>(x => !x.isDeleted, cancellationToken);
+        var repository = unitOfWork.GetRepository<AuthUser>();
+        return repository.GetAll<GetRoleListDto>(x => x.isDeleted == false, cancellationToken);
     }
 }

@@ -12,7 +12,7 @@ public class GetUserListRequestHandler : IRequestHandler<GetUserListRequest, Lis
     public Task<List<GetUserListDto>> Handle(GetUserListRequest request, CancellationToken cancellationToken)
     //Handle methodu GetUserlistRequest'i giriş Task<List<User>>'ı da dönüş olarak kullanıyor.
     {
-        var repository = unitOfWork.GetRepository<User>();
-        return repository.GetAll<GetUserListDto>(x => !x.isDeleted, cancellationToken);
+        var repository = unitOfWork.GetRepository<AuthUser>();
+        return repository.GetAll<GetUserListDto>(x => x.isDeleted == false, cancellationToken);
     }
 }

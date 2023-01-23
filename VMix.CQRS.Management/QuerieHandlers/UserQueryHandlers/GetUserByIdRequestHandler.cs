@@ -11,7 +11,7 @@ public class GetUserByIdRequestHandler : IRequestHandler<GetUserByIdRequest, Get
 
     public Task<GetUserByIdDto> Handle(GetUserByIdRequest request, CancellationToken cancellationToken)
     {
-        var repository = unitOfWork.GetRepository<User>();
+        var repository = unitOfWork.GetRepository<AuthUser>();
         return repository.Get<GetUserByIdDto>(x => x.id == request.Id, cancellationToken);
     }
 }

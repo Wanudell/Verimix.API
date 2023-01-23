@@ -13,7 +13,7 @@ public class ForgotPasswordRequestHandler : IRequestHandler<ForgotPasswordReques
 
     public async Task<bool> Handle(ForgotPasswordRequest request, CancellationToken cancellationToken)
     {
-        var repository = unitOfWork.GetRepository<User>();
+        var repository = unitOfWork.GetRepository<AuthUser>();
         var entity = await repository.Get((x => x.userName == request.Data.UserName && x.email == request.Data.Email), cancellationToken);
         
         if(entity == null)

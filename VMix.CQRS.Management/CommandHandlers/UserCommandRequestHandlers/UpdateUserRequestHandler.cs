@@ -13,7 +13,7 @@ internal class UpdateUserRequestHandler : IRequestHandler<UpdateUserRequest, boo
 
     public async Task<bool> Handle(UpdateUserRequest request, CancellationToken cancellationToken)
     {
-        var repository = unitOfWork.GetRepository<User>();
+        var repository = unitOfWork.GetRepository<AuthUser>();
         var entity = await repository.Get(f => f.id == request.Data.Id, cancellationToken);
         if (entity is null)
         {
