@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VMix.Data.Context;
 
@@ -11,9 +12,11 @@ using VMix.Data.Context;
 namespace VMix.Data.Migrations
 {
     [DbContext(typeof(VMixDbContext))]
-    partial class VMixDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230123093830_authEntitiesCreated")]
+    partial class authEntitiesCreated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

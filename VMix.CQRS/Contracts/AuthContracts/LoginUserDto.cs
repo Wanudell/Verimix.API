@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace VMix.CQRS.Contracts.AuthContracts;
 
-namespace VMix.CQRS.Contracts.AuthContracts
+public class LoginUserDto
 {
-    public class LoginUserDto
+    public LoginUserDto()
     {
-        public string UserName { get; set; }
-        public string Password { get; set; }
+        lastLoginDate = DateTime.Now;
     }
+
+    public string UserName { get; set; }
+    public string Password { get; set; }
+    public DateTime lastLoginDate { get; set; }
 }

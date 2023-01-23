@@ -38,7 +38,7 @@ public class AuthController : ControllerBase
         //throw new Exception("Something went wrong"); //hata mevcut olduğunda yazdırılabilecek hata bilgisi.
         //WatchLogger.Log("Trying To Make Some Log"); //İstediğimiz bir logu yazabiliriz.
         var result = await service.RegisterUser(data, cancellationToken);
-        WatchLogger.Log(data.FullName + "sisteme kayıt olmuştur.");
+        WatchLogger.Log(data.Name + "sisteme kayıt olmuştur.");
         return Ok(result);
     }
 

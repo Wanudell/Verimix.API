@@ -26,7 +26,7 @@ internal class RegisterUserRequestHandler : IRequestHandler<RegisterUserRequest,
 
         var claims = new Dictionary<string, object>();
         claims.Add(ClaimTypes.Email, request.Data.Email);
-        claims.Add(ClaimTypes.GivenName, request.Data.FullName);
+        claims.Add(ClaimTypes.GivenName, request.Data.Name);
 
         var tokenDescriptor = new SecurityTokenDescriptor
         {
