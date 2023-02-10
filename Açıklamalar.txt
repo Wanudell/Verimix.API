@@ -1,29 +1,32 @@
+ï»¿KullanÄ±lan Pattern'ler : Repository Design Pattern - Unit Of Work - AutoMapper - MediatR
+KullanÄ±lan Teknolojiler : Swagger Doc - JWT Bearer Token 
+
 MediatR Design Pattern :
 
-Kullanabilmek için Nuget'den MediatR ve MediatR.DependencyInjection paketlerini Services Library'mize kurmalıyız.
+Kullanabilmek iÃ§in Nuget'den MediatR ve MediatR.DependencyInjection paketlerini Services Library'mize kurmalÃ½yÃ½z.
 
-MediatR bize her bir işlemi tek tek yapmaktansa hangi işlemin nereye gideceğini sağlayıp kod tekrarını engelleyen bir design pattern'dır.
-İngilizce anlamı arabulucu taşıyı olan Mediator'dan gelmektedir ismi.
-Bize Fat Service oluşturmamamız için gerekli bir modüler yapıdır. Nasıl ki Fat Controller oluşturmamak gerektiği için Repository Design Pattern kullanıyoruz.
-Fat Service oluşturmamak içinde MediatR kullanmamız gerekir.
-MediatR kullanımında bütün yapılacak olan işlemler Async çalışacaktır. Yani await ve async işlemleri ortaya çıkacaktır.
+MediatR bize her bir iÃ¾lemi tek tek yapmaktansa hangi iÃ¾lemin nereye gideceÃ°ini saÃ°layÃ½p kod tekrarÃ½nÃ½ engelleyen bir design pattern'dÃ½r.
+Ãngilizce anlamÃ½ arabulucu taÃ¾Ã½yÃ½ olan Mediator'dan gelmektedir ismi.
+Bize Fat Service oluÃ¾turmamamÃ½z iÃ§in gerekli bir modÃ¼ler yapÃ½dÃ½r. NasÃ½l ki Fat Controller oluÃ¾turmamak gerektiÃ°i iÃ§in Repository Design Pattern kullanÃ½yoruz.
+Fat Service oluÃ¾turmamak iÃ§inde MediatR kullanmamÃ½z gerekir.
+MediatR kullanÃ½mÃ½nda bÃ¼tÃ¼n yapÃ½lacak olan iÃ¾lemler Async Ã§alÃ½Ã¾acaktÃ½r. Yani await ve async iÃ¾lemleri ortaya Ã§Ã½kacaktÃ½r.
 
-Sync çalışmalar biri bitmeden diğerinin başlamadığı işlemlerdir. Async işlemler ise günümüzde işlemcilerimizin de gelişmesi ile aynı anda birden fazla işlemin 
-başlatılabilmesi mümkündür. Buna multi tasking veya multi treading denir. Örneğin 3.2 ghz bir işlemci de 3 milyara kadar işlem yapabilme kapasitesi vardır.
-Async yapmak için methodumuzu Task yapmamız ve başına async tag'ı eklememiz gerekmektedir. Return olarak da await eklenmelidir. Async çalışma içerisinde task kullanılmalı
-TPL Kütüphanesinden okunulabilir. Task Paralel Library demektir.
-Async işlemler uzun süreli de olabilir kısa süreli de olabilir. Uzun süreli olmalarında problem yaşandığı anda CancellationToken kullanılarak işlem iptal edilebilir ve 
+Sync Ã§alÃ½Ã¾malar biri bitmeden diÃ°erinin baÃ¾lamadÃ½Ã°Ã½ iÃ¾lemlerdir. Async iÃ¾lemler ise gÃ¼nÃ¼mÃ¼zde iÃ¾lemcilerimizin de geliÃ¾mesi ile aynÃ½ anda birden fazla iÃ¾lemin 
+baÃ¾latÃ½labilmesi mÃ¼mkÃ¼ndÃ¼r. Buna multi tasking veya multi treading denir. Ã–rneÃ°in 3.2 ghz bir iÃ¾lemci de 3 milyara kadar iÃ¾lem yapabilme kapasitesi vardÃ½r.
+Async yapmak iÃ§in methodumuzu Task yapmamÃ½z ve baÃ¾Ã½na async tag'Ã½ eklememiz gerekmektedir. Return olarak da await eklenmelidir. Async Ã§alÃ½Ã¾ma iÃ§erisinde task kullanÃ½lmalÃ½
+TPL KÃ¼tÃ¼phanesinden okunulabilir. Task Paralel Library demektir.
+Async iÃ¾lemler uzun sÃ¼reli de olabilir kÃ½sa sÃ¼reli de olabilir. Uzun sÃ¼reli olmalarÃ½nda problem yaÃ¾andÃ½Ã°Ã½ anda CancellationToken kullanÃ½larak iÃ¾lem iptal edilebilir ve 
 durdurulabilir.
 
-MediatR'ın bizi bir class'a gönderip; tek bir süreci tek bir class'a bağlamamız işine CQRS pattern deniyor. 
-Command Query Responsibility Seggregation => Command ve Query isteklerinin birbirinden ayrıldığı pattern'dir.
+MediatR'Ã½n bizi bir class'a gÃ¶nderip; tek bir sÃ¼reci tek bir class'a baÃ°lamamÃ½z iÃ¾ine CQRS pattern deniyor. 
+Command Query Responsibility Seggregation => Command ve Query isteklerinin birbirinden ayrÃ½ldÃ½Ã°Ã½ pattern'dir.
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Repository Design Pattern : 
 
-Repository kullanımının amacı entity ne verirsek onun servisi olarak hareket etmesi içindir.
+Repository kullanÃ½mÃ½nÃ½n amacÃ½ entity ne verirsek onun servisi olarak hareket etmesi iÃ§indir.
 
 
 
@@ -35,8 +38,8 @@ Repository kullanımının amacı entity ne verirsek onun servisi olarak hareket etm
 
 Unit Of Work Design Pattern : 
 
-Database işlemleri ile ilgilenen pattern'dir. Unit of work sarmalayıcıdır. Entity'nin servisini döner bize ve o servis işlemini yaptıktan sonra sürekli database'e
-işlem yaptırmaktan ve yoğunluk oluşturmaktansa işlemleri en sonunda tamamlar ve saveChanges uygular.
+Database iÃ¾lemleri ile ilgilenen pattern'dir. Unit of work sarmalayÃ½cÃ½dÃ½r. Entity'nin servisini dÃ¶ner bize ve o servis iÃ¾lemini yaptÃ½ktan sonra sÃ¼rekli database'e
+iÃ¾lem yaptÃ½rmaktan ve yoÃ°unluk oluÃ¾turmaktansa iÃ¾lemleri en sonunda tamamlar ve saveChanges uygular.
 
 
 
@@ -62,13 +65,90 @@ MediatR<UnitOfWork<Repository<Entity>>>
 
 
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+JWT Bearer Token :
+
+API'e "Microsoft.AspNetCore.Authentication.JwtBearer" yÃ¼klenir.
+Ã–ncelikle DI Container'a bir computehash algoritmasÄ± yazÄ±lÄ±r. Sha256 tercih edilmesinde fayda var.
+SonrasÄ±nda Database'de User'lar iÃ§in Password ve PasswordHash eklenir.
 
 
-Değişecek bölümler : 
 
-VMix yazılacak isimler ve dbcontext
-Guid Id -> int Id
-Versiyonlama
-WatchDog kurulumu
-JWT Bearer
-Swagger Açıklama Dokümantasyonu eklenecek. Araştır.
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Sistem ÅemasÄ± : 
+
+Controller oluÅŸturulur.
+Service ve Service'in abstract'Ä± oluÅŸturulur.
+OluÅŸturulan service ve abstract'Ä± extension method iÃ§erisinde tanÄ±mla.
+Request oluÅŸturulur.
+Request'e karÅŸÄ±lÄ±k gelecek Dto oluÅŸturulur.
+Request'i karÅŸÄ±layacak Handler oluÅŸturulur.
+Automapper'da Entity ve Dto eÅŸleÅŸtirilir.
+
+CQRS'de her bir isteÄŸe karÅŸÄ±lÄ±k bir command bir de query olmasÄ± gerekir.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+- CONTROLLERS -
+
+-> NavMenuControllers (WithAtakan)
+- 
+-
+-
+-
+-
+-
+-> PermissinController (With Atakan)
+- 
+-
+-
+-
+-
+-
+-> RoleController
+
+- GetAllRoles
+- GetAllRoles with Filters
+- GetRoleById
+- CreateRole
+- DeleteRoleById
+- UpdateRoleById			Bitti
+
+-> UserController Authorize
+
+- GetAllUsers with filter
+- GetUserById
+- GetUserByToken
+- CreateUser
+- DeleteUserById
+- UpdateUser - Silinecek
+- UpdateUserById			Bitti
+
+-> AuthController AllowAnonymous
+
+- LoginUser
+- RegisterUser ?
+- RefreshToken
+- PasswordReset (EKLENECEK) 
+- Forget Password (EKLENECEK)		Ã‡alÄ±ÅŸÄ±lÄ±yor.
+
+-> ConfigController
+
+-
+-
+-
+-
+
+-> LogController
+
+-
+-
+-
+-
+
+
+IService ve Service'de method oluÅŸturulur. A
+rdÄ±ndan Dto oluÅŸturulur. 
+Sonra Dto'nun request'i oluÅŸturulur. 
+ArdÄ±ndan RequestHandler oluÅŸturulur. 
+En sonunda Map'lenmesi gereken Dto ve Entity arasÄ±nda CreateMap iliÅŸkisi oluÅŸturulur ve API ucu yazÄ±larak kullanÄ±ma hazÄ±r olur.

@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VMix.Net.API", "VMix.Net.API\VMix.Net.API.csproj", "{9EAF323E-B08A-47E9-87AA-BA6F7C7EDA6F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VMix.Data", "VMix.Data\VMix.Data.csproj", "{4B90F8A3-29FD-4D9E-9D3B-90736F942713}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VMix.Services", "VMix.Services\VMix.Services.csproj", "{010525D7-36CA-4007-85BD-9B6A1BEBCCA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{73D7324C-9A96-4639-ACB5-19582877316A}"
+	ProjectSection(SolutionItems) = preProject
+		Açıklamalar.txt = Açıklamalar.txt
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VMix.CQRS", "VMix.CQRS\VMix.CQRS.csproj", "{9160279E-EC6A-4DAF-B492-5FA65AA2F999}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VMix.CQRS.Management", "VMix.CQRS.Management\VMix.CQRS.Management.csproj", "{1370A010-A0B7-413D-AAEB-8DE7159E2227}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VMix.Mapper", "VMix.Mapper\VMix.Mapper.csproj", "{F456A4E0-8DC4-4D8A-824C-8E48D2884E96}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EAF323E-B08A-47E9-87AA-BA6F7C7EDA6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EAF323E-B08A-47E9-87AA-BA6F7C7EDA6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EAF323E-B08A-47E9-87AA-BA6F7C7EDA6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EAF323E-B08A-47E9-87AA-BA6F7C7EDA6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B90F8A3-29FD-4D9E-9D3B-90736F942713}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B90F8A3-29FD-4D9E-9D3B-90736F942713}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B90F8A3-29FD-4D9E-9D3B-90736F942713}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B90F8A3-29FD-4D9E-9D3B-90736F942713}.Release|Any CPU.Build.0 = Release|Any CPU
+		{010525D7-36CA-4007-85BD-9B6A1BEBCCA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{010525D7-36CA-4007-85BD-9B6A1BEBCCA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{010525D7-36CA-4007-85BD-9B6A1BEBCCA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{010525D7-36CA-4007-85BD-9B6A1BEBCCA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9160279E-EC6A-4DAF-B492-5FA65AA2F999}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9160279E-EC6A-4DAF-B492-5FA65AA2F999}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9160279E-EC6A-4DAF-B492-5FA65AA2F999}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9160279E-EC6A-4DAF-B492-5FA65AA2F999}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1370A010-A0B7-413D-AAEB-8DE7159E2227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1370A010-A0B7-413D-AAEB-8DE7159E2227}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1370A010-A0B7-413D-AAEB-8DE7159E2227}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1370A010-A0B7-413D-AAEB-8DE7159E2227}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F456A4E0-8DC4-4D8A-824C-8E48D2884E96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F456A4E0-8DC4-4D8A-824C-8E48D2884E96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F456A4E0-8DC4-4D8A-824C-8E48D2884E96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F456A4E0-8DC4-4D8A-824C-8E48D2884E96}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A8656C70-B30D-40A8-AAD2-3B22818C71AE}
+	EndGlobalSection
+EndGlobal

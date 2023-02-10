@@ -1,0 +1,14 @@
+﻿global using Microsoft.EntityFrameworkCore;
+global using System.Linq.Expressions;
+global using System.Text;
+global using VMix.Data.Entities;
+global using VMix.Data.Abstractions;
+global using System.ComponentModel.DataAnnotations.Schema;
+global using System.ComponentModel.DataAnnotations;
+global using Microsoft.Extensions.Configuration;
+global using VMix.Data.Concretes;
+global using VMix.Data.Context;
+global using AutoMapper;
+global using AutoMapper.QueryableExtensions;
+global using System.Security.Cryptography;
+global using VMix.Data.Middleware;
